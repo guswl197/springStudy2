@@ -16,9 +16,9 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
 //    테스트 용도
-//    public MemberRepository getMemberRepository() {
-//        return memberRepository;
-//    }
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
