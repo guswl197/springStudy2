@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.inject.Provider;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class SingletonWithPrototypeTest1 {
@@ -43,10 +45,10 @@ public class SingletonWithPrototypeTest1 {
     @Component
     static class ClientBean{
         @Autowired
-        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+        private Provider<PrototypeBean> provider;
 
         public int logic(){
-            PrototypeBean prototypeBean= prototypeBeanProvider.getObject();
+            PrototypeBean prototypeBean= provider.get();
             prototypeBean.addCount();
             int count = prototypeBean.getCount();
             return count;
